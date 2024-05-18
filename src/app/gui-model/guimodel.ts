@@ -6,7 +6,7 @@ export class GuiModel {
 
     private _guiModel = {
         "application": {
-            "title": "Our's Friend Tracker (FS2024)",
+            "title": "Hussein & Conway's Friend Tracker (FS2024)",
             "formList": [
                 {
                     "id": "FriendForm",
