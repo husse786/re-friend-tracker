@@ -92,6 +92,14 @@ export class GuiModel {
                             "required": true
                         },
                         {
+                            "id": "comment",
+                            "type": "text",
+                            "name": "Comments",
+                            "width": 2,
+                            "height": 4,
+                            "maxLength": 5000,
+                        },
+                        {
                             "type": "deleteButton",
                             "name": "Delete"
                         },
@@ -147,6 +155,68 @@ export class GuiModel {
                             "required": true
                         },
                         {
+                            "id": "date",
+                            "type":"date",
+                            "name": "CreationDate",
+                            "width": 2
+                        },
+                        {
+                            "id": "comment",
+                            "type": "text",
+                            "name": "Comments",
+                            "width": 2,
+                            "height": 4,
+                            "maxLength": 5000,
+                        },
+                        {
+                            "type": "deleteButton",
+                            "name": "Delete"
+                        },
+                        {
+                            "type": "cancelButton",
+                            "name": "Cancel"
+                        },
+                        {
+                            "type": "okButton",
+                            "name": "Ok"
+                        },
+                    ]
+                },
+                {
+                    "id": "ActivityForm",
+                    "titel": "Activity",
+                    "url": "/activity",
+                    "formFieldList":[
+                        {
+                            "id": "name",
+                            "type":"text",
+                            "name": "Name",
+                            "width": 2,
+                            "required": true
+                        },
+                        {
+                            "id": "date",
+                            "type":"date",
+                            "name": "Date",
+                            "width": 2
+                        },
+                        {
+                            "id": "location",
+                            "type": "autocomplete",
+                            "name": "Location",
+                            "url": "/location",
+                            "form": "LocationForm",
+                            "width": 2
+                        },
+                        {
+                            "id": "comment",
+                            "type": "text",
+                            "name": "Comments",
+                            "width": 2,
+                            "height": 4,
+                            "maxLength": 5000,
+                        },
+                        {
                             "type": "deleteButton",
                             "name": "Delete"
                         },
@@ -189,10 +259,10 @@ export class GuiModel {
                         },
                         {
                             "type": "button",
-                            "name": "Place",
-                            "icon": "fa-cubes",
+                            "name": "Activity",
+                            "icon": "fa-gamepad",
                             "color": "green",
-                            "page": "placepages",
+                            "page": "activitypage",
                         },
                     ]
                 },
@@ -208,7 +278,7 @@ export class GuiModel {
                             "icon": "fa-user",
                             "color": "green",
                             "form": {
-                                "form": "FriendForm"
+                                "form": "FriendForm",
                             }
                         },
                         {
@@ -217,10 +287,43 @@ export class GuiModel {
                             "color": "blue",
                             "search": true,
                             "url": "/friend",
+                            "page": "editfriendspage"
+                            
+                        }
+                    ]
+                },
+                {
+                    "id": "editfriendspage",
+                    "elementList": [
+                        {
+                            "type": "backbutton",
+                        },
+                        {
+                            "type": "newButton",
+                            "name": "Edit friend",
+                            "icon": "fa-user",
+                            "color": "green",
                             "form": {
-                                "form": "FriendForm"
+                                "form": "FriendForm",
+                                "key": ":friendKey"
                             }
                         },
+                        {
+                            "type": "newButton",
+                            "name": "AddActivity",
+                            "icon": "fa-calendar",
+                            "color": "green",
+                            "form": {
+                                "form": "AddActivityForm"
+                            }
+                        },
+                        {
+                            "type": "list",
+                            "icon": "fa-gamepad",
+                            "color": "blue",
+                            "search": true,
+                            "url": "/friend/:friendKey/activity",
+                        }
                     ]
                 },
                 {
@@ -274,6 +377,33 @@ export class GuiModel {
                             "url": "/group",
                             "form": {
                                 "form": "GroupForm"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "id": "activitypage",
+                    "elementList": [
+                        {
+                    "type": "backbutton",
+                        },
+                        {
+                            "type": "newButton",
+                            "name": "NewActivity",
+                            "icon": "fa-weixin",
+                            "color": "green",
+                            "form": {
+                                "form": "ActivityForm"
+                            }
+                        },
+                        {
+                            "type": "list",
+                            "icon": "fa-weixin",
+                            "color": "wisteria",
+                            "search": true,
+                            "url": "/activity",
+                            "form": {
+                                "form": "ActivityForm"
                             }
                         }
                     ]
